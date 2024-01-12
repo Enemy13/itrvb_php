@@ -1,0 +1,17 @@
+{
+  "name": "tgu/bazitov",
+  "autoload": {
+    "psr-4": {
+      "Tgu\\Bazitov\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "enemy13",
+      "email": "dimabazit@mail.ru"
+    }
+  ],
+  "require": {
+    "fakerphp/faker": "^1.23"
+  }
+}
