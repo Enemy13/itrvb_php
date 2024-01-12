@@ -1,7 +1,8 @@
 <?php
 
-namespace Tgu\Bazitov\Repositories;
+namespace Tgu\Bazitov\Repositories\CommentRepository;
 
+use Tgu\Bazitov\Repositories\UUID;
 use Tgu\Bazitov\Comment;
 
 interface CommentsRepositoryInterface

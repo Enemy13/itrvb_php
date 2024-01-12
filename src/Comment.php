@@ -12,9 +12,9 @@ class Comment
     private UUID $articleId;
     private string $text;
 
-    public function __construct(UUID $userId, UUID $articleId, string $text)
+    public function __construct(?UUID $id, UUID $userId, UUID $articleId, string $text)
     {
-        $this->id = new UUID();
+        $this->id = new UUID($id);
         $this->userId = $userId;
         $this->articleId = $articleId;
         $this->text = $text;

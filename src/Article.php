@@ -11,9 +11,9 @@ class Article
     private string $title;
     private string $text;
 
-    public function __construct(UUID $userId, string $title, string $text)
+    public function __construct(?UUID $id, UUID $userId, string $title, string $text)
     {
-        $this->id = new UUID();
+        $this->id = new UUID($id);
         $this->userId = $userId;
         $this->title = $title;
         $this->text = $text;

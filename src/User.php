@@ -11,9 +11,9 @@ class User
     private string $firstName;
     private string $lastName;
 
-    public function __construct(string $userName, string $firstName, string $lastName)
+    public function __construct(?UUID $id, string $userName, string $firstName, string $lastName)
     {
-        $this->id = new UUID();
+        $this->id = new UUID($id);
         $this->userName = $userName;
         $this->firstName = $firstName;
         $this->lastName = $lastName;

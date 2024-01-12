@@ -1,8 +1,9 @@
 <?php
 
-namespace Tgu\Bazitov\Repositories;
+namespace Tgu\Bazitov\Repositories\ArticlesRepository;
 
 use Tgu\Bazitov\Article;
+use Tgu\Bazitov\Repositories\UUID;
 
 interface ArticlesRepositoryInterface
 {

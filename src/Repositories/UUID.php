@@ -8,15 +8,14 @@ class UUID
 {
     private readonly string $uuid;
 
-    function __construct()
+    function __construct(string $uuid = null)
     {
-        $this->uuid = UuidAlias::uuid();
+        $this->uuid = $uuid === null ? UuidAlias::uuid() : $uuid;
     }
 
     public function __toString(): string
     {
         return $this->uuid;
     }
-
 }
 
