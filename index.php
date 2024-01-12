@@ -14,7 +14,8 @@ spl_autoload_register(function ($class) {
     }
 });
 
-$user = new User(5, 'Dmitriy', 'Bazitov');
+$user = new User('enemy13', 'Dmitriy', 'Bazitov');
 
-echo $user->firstName;
+echo $user->getUserName();
+echo $user->getId();
 
