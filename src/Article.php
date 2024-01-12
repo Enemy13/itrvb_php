@@ -2,16 +2,18 @@
 
 namespace Tgu\Bazitov;
 
+use Tgu\Bazitov\Repositories\UUID;
+
 class Article
 {
-    public int $id;
-    public int $userId;
+    public UUID $id;
+    public UUID $userId;
     public string $title;
     public string $text;
 
-    public function __construct(int $id, int $userId, string $title, string $text)
+    public function __construct(UUID $userId, string $title, string $text)
     {
-        $this->id = $id;
+        $this->id = new UUID();
         $this->userId = $userId;
         $this->title = $title;
         $this->text = $text;
