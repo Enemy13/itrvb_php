@@ -4,6 +4,7 @@ namespace Tgu\Bazitov\Repositories\CommentRepository;
 
 
 use Tgu\Bazitov\Comment;
+use Tgu\Bazitov\Exceptions\CommentNotFoundException;
 use Tgu\Bazitov\Repositories\UUID;
 use PDO;
 
@@ -23,7 +24,7 @@ class SqliteCommentsRepository implements CommentsRepositoryInterface
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if ($result === false)
-            throw new \Exception();
+            throw new CommentNotFoundException('Сообщение не найдено по uuid:' . $uuid);
 
         return new Comment(
             new UUID($result['uuid']),

@@ -2,6 +2,7 @@
 
 namespace Tgu\Bazitov\Repositories\UserRepository;
 
+use Tgu\Bazitov\Exceptions\UserNotFoundException;
 use Tgu\Bazitov\Repositories\UUID;
 use Tgu\Bazitov\User;
 use PDO;
@@ -22,7 +23,7 @@ class SqliteUserRepository implements UserRepositoryInterface
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if ($result === false)
-            throw new \Exception();
+            throw new UserNotFoundException('Пользователь не найден по uuid:' . $uuid);
 
         return new User(
             new UUID($result['uuid']),

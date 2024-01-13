@@ -4,6 +4,7 @@ namespace Tgu\Bazitov\Repositories\ArticlesRepository;
 
 use PDO;
 use Tgu\Bazitov\Article;
+use Tgu\Bazitov\Exceptions\ArticleNotFoundException;
 use Tgu\Bazitov\Repositories\UUID;
 
 class SqliteArticlesRepository implements ArticlesRepositoryInterface
@@ -22,7 +23,7 @@ class SqliteArticlesRepository implements ArticlesRepositoryInterface
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if ($result === false)
-            throw new \Exception();
+            throw new ArticleNotFoundException('Статья не найдена по uuid:' . $uuid);
 
         return new Article(new UUID($result['uuid']), new UUID($result['user_uuid']), $result['title'], $result['text']);
     }
