@@ -10,4 +10,6 @@ interface ArticlesRepositoryInterface
     function get(UUID $uuid): Article;
 
     function save(Article $article): void;
+
+    function delete(UUID $uuid): void;
 }

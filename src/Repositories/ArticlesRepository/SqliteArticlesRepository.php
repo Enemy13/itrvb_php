@@ -33,4 +33,14 @@ class SqliteArticlesRepository implements ArticlesRepositoryInterface
         $stmt = $this->connection->prepare('INSERT INTO main.articles(uuid,user_uuid,title,text) VALUES (:uuid,:user_uuid,:title,:text)');
         $stmt->execute(array($article->getId(), $article->getUserId(), $article->getTitle(), $article->getText()));
     }
+
+    public function delete(UUID $uuid): void
+    {
+        $stmt = $this->connection->prepare('DELETE FROM articles WHERE uuid=:uuid');
+        $stmt->execute(array((string)$uuid));
+
+        if ($stmt->rowCount() === 0) {
+            throw new ArticleNotFoundException('Статья не найдена по uuid:' . $uuid);
+        }
+    }
 }
